@@ -20,7 +20,7 @@ public class TestConvert {
         var actualFile = "newData.json";
         Assertions.assertTrue(Arrays.equals(convertFileToByteArray(expectFile),
                         convertFileToByteArray(actualFile)),
-                "different file");
+                "files is different");
     }
 
     @Test
@@ -35,7 +35,7 @@ public class TestConvert {
         var actualFile = "newData2.json";
         Assertions.assertTrue(Arrays.equals(convertFileToByteArray(expectFile),
                         convertFileToByteArray(actualFile)),
-                "different file");
+                "files is different");
     }
 
     private static byte[] convertFileToByteArray(String filePath) throws IOException {
