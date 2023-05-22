@@ -1,7 +1,7 @@
 public class PersonBuilder {
     protected String name;
     protected String surname;
-    protected Integer age;
+    protected int age;
     protected String address;
 
     public PersonBuilder setName(String name) {

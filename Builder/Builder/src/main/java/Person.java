@@ -1,9 +1,10 @@
 import java.util.Objects;
+import java.util.OptionalInt;
 
 public class Person {
     protected final String name;
     protected final String surname;
-    protected Integer age;
+    protected int age;
     protected String address;
 
     public Person(String name, String surname) {
@@ -25,11 +26,8 @@ public class Person {
         return surname;
     }
 
-    public Integer getAge() {
-        if (age == null) {
-            System.out.println("Age not set");
-        }
-        return age;
+    public OptionalInt getAge() {
+        return OptionalInt.of(age);
     }
 
     public void setAddress(String adress) {
@@ -37,7 +35,7 @@ public class Person {
     }
 
     public boolean hasAge() {
-        return age != null;
+        return !getAge().isPresent();
     }
 
     public boolean hasAddress() {
@@ -45,8 +43,8 @@ public class Person {
     }
 
     public void happyBirthday() {
-        if (age != null && age >= 0) {
-            this.age++;
+        if(hasAge()){
+            age ++;
         }
     }
 
@@ -60,10 +58,10 @@ public class Person {
     @Override
     public String toString() {
         String strAge;
-        if (age == null) {
+        if (hasAge()) {
             strAge = "Age not set";
         } else {
-            strAge = age.toString();
+            strAge = Integer.toString(age);
         }
 
         return "{Имя '" + name + '\'' + ", Фамилия '" + surname + '\'' + ", Возраст " + strAge +
